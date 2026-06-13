@@ -24,10 +24,43 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w4klo4p2tbuy_f@&q3569s8j(4xq6tivs(%6=zm&a&am7^23=t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'blacksider.pythonanywhere.com']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'blacksider.pythonanywhere.com']
 
+
+# ==========================================
+# 🧠 SELEKSI OTOMATIS: LAPTOP VS PRODUCTION SERVER
+# ==========================================
+# Kita cek apakah file ini berjalan di server PythonAnywhere (punya folder 'blacksider')
+if 'blacksider' in str(BASE_DIR):
+    DEBUG = False
+    ALLOWED_HOSTS = ['blacksider.pythonanywhere.com']
+    
+    # Di server PythonAnywhere gratisan, kita pakai SQLite absolut yang kemarin sukses
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': '/home/blacksider/dolphines/db.sqlite3',
+        }
+    }
+else:
+    # Ini settingan khusus saat kamu ngoding di VS Code LAPTOP kamu
+    DEBUG = True
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    
+    # Di laptop, Django kamu bebas pakai MySQL lokal kamu
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'db_dolphines',
+            'USER' : 'root',
+            'PASSWORD' : 'blacksider2026',
+            'HOST' : 'localhost',
+            'PORT' : '3306',
+        }
+    }
+# ==========================================
 
 # Application definition
 
@@ -79,17 +112,17 @@ WSGI_APPLICATION = 'mysite_staticfiles_7.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_dolphines',
-        'USER' : 'root',
-        'PASSWORD' : 'blacksider2026',
-        'HOST' : 'localhost',
-        'PORT' : '3306',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'db_dolphines',
+#         'USER' : 'root',
+#         'PASSWORD' : 'blacksider2026',
+#         'HOST' : 'localhost',
+#         'PORT' : '3306',
         
-    }
-}
+#     }
+# }
 
 
 # Password validation
