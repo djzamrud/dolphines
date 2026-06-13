@@ -1,0 +1,49 @@
+{%load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {%block css%}
+    {%endblock css%}
+    <title>{%block title%}{%endblock title%}</title>
+</head>
+
+<body>
+
+
+    <div>
+        {%block bg%}
+
+        {%endblock bg%}
+
+    </div>
+    {% include 'snippets/nav.html' %}
+
+    <div>
+        <h1>{%block header%}
+            {%endblock header%}
+        </h1>
+
+        <h2>
+            {%block content%}
+            {%endblock content%}
+        </h2>
+    </div>
+
+    {%block main%}
+
+    {%endblock main%}
+
+    <!-- {%for image, select in img %}
+    <img src="{% static image %}" alt="{{select}}">
+    {%endfor%} -->
+
+
+</body>
+
+</html>

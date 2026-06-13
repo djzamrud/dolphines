@@ -1,0 +1,54 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block title%}
+{{title}}
+{%endblock title%}
+
+
+{%block main%}
+
+{% for contac in contacts %}
+<h1>{{team}}</h1>
+
+<ul>
+    <li>{{contac.nama}}</li>
+    <li>{{contac.hp}}</li>
+    <li>{{contac.email}}</li>
+</ul>
+
+{% endfor %}
+
+
+{%block header%}
+{{header}}
+{%endblock header%}
+
+
+{%block content%}
+{{content}}
+{%endblock content%}
+
+
+<form method="post" action="">
+    {%csrf_token%}
+
+    <table>
+        {{personal}}
+    </table>
+    <button type="submit">KIrirm</button>
+</form>
+
+<br><br><br>
+
+<form method="post" action="">
+    {%csrf_token%}
+
+    <table>
+        {{personal2.as_p}}
+    </table>
+    <button type="submit">Kirim</button>
+</form>
+
+
+{%endblock main%}

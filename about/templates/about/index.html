@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}
+{{title}}
+{%endblock title%}
+
+{%block header%}
+{{header}}
+{%endblock header%}
+
+
+{%block content%}
+{{content}}
+{%endblock content%}
+
+{%block main%}
+
+
+{% for about in showAbouts %}
+
+<div style=" background-color: blue; border-color: aquamarine; border-radius: 10;">
+    <h1>judul : {{about.judul}}</h1>
+    <h3>penulis : {{about.author}}</h3>
+    <p>tanggal : {{about.date}}</p>
+</div>
+
+
+{%endfor%}
+
+{%endblock main%}

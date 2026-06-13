@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title%}
+{{title}}
+{%endblock title%}
+
+
+
+{%block header%}
+{{header}}
+{%endblock header%}
+
+{%block content%}
+{{content}}
+
+
+{%endblock content%}
+
+
+{%block main%}
+
+
+<div style="background-color: aqua;">
+    <h1>Deposiste</h1>
+
+    <div>
+        <img src="{% static 'img/logo.png'%}" alt="">
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="nama">Nama:</label>
+        <input type="text" name="nama" id="nama">
+        <br>
+        <label for="hp">No.HP:</label>
+        <input type="text" name="hp" id="hp">
+        <br>
+        <label for="jumlah">Jumlah:</label>
+        <input type="text" name="jumlah" id="jumlah">
+        <br>
+        <button type="submit">Done</button>
+    </form>
+</div>
+
+<div style="background-color: blue;">
+
+    <h1>Bil Anda :</h1>
+    <h4>Nama : {{nama}}</h4>
+    <h4>No.HP : {{hp}}</h4>
+    <h4>Jumlah : {{jumlah}}</h4>
+    <h3>Segera lakukan Deposite ke Norek yang telah anda pilih di sini : 1706081414</h3>
+
+</div>
+
+
+
+
+{%endblock main%}

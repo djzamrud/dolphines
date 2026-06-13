@@ -1,0 +1,44 @@
+{%load static%}
+
+<style>
+    .nav {
+        display: flex;
+        justify-content: flex;
+        align-items: center;
+        background-color: rgb(104, 62, 255);
+        margin-top: 0px;
+        padding: 0;
+    }
+
+    ul li {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        margin: 0;
+
+
+    }
+
+    a {
+        text-decoration: none;
+        list-style: none;
+        color: aliceblue;
+
+    }
+
+    .bg-logo {
+        width: 60px;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<nav>
+
+    <ul class="nav">
+        <li><img class="bg-logo" src="{%static 'img/dolp.png'%}" alt=""></li>
+        {% for url, menu in nav%}
+        <li><a href="{{url}}">{{menu}}</a></li>
+        {%endfor%}
+    </ul>
+
+</nav>

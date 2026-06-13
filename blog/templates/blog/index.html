@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}
+{{title}}
+{%endblock title%}
+
+
+{%block main%}
+
+<ul>
+    <li>
+        <a href="artikel">artikel</a>
+    </li>
+</ul>
+
+{%block header%}
+{{header}}
+{%endblock header%}
+
+
+{%block content%}
+{{content}}
+{%endblock content%}
+
+
+{% for uppost in Posin%}
+<h1>{{uppost.title}}</h1>
+<p>{{uppost.body}}</p>
+<h3>{{uppost.category}}</h3>
+{%endfor%}
+
+
+
+
+
+{%endblock main%}
