@@ -1,54 +1,175 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/style.css'%}">
+{%endblock css%}
+
 {%block title%}
 {{title}}
 {%endblock title%}
 
 
-
-{%block header%}
-{{header}}
-{%endblock header%}
-
-{%block content%}
-{{content}}
-
-
-{%endblock content%}
-
-
 {%block main%}
 
 
-<div style="background-color: aqua;">
-    <h1>Deposiste</h1>
+<!-- Halaman utama -->
 
-    <form method="post">
-        {% csrf_token %}
-        <label for="nama">Nama:</label>
-        <input type="text" name="nama" id="nama">
-        <br>
-        <label for="hp">No.HP:</label>
-        <input type="text" name="hp" id="hp">
-        <br>
-        <label for="jumlah">Jumlah:</label>
-        <input type="text" name="jumlah" id="jumlah">
-        <br>
-        <button type="submit">Done</button>
-    </form>
-</div>
+<section class="hero py-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
 
-<div style="background-color: blue;">
+            ```
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold">
+                    Dolphin Notes 🐬
+                </h1>
 
-    <h1>Bil Anda :</h1>
-    <h4>Nama : {{nama}}</h4>
-    <h4>No.HP : {{hp}}</h4>
-    <h4>Jumlah : {{jumlah}}</h4>
-    <h3>Segera lakukan Deposite ke Norek yang telah anda pilih di sini : 1706081414</h3>
+                <p class="lead text-muted">
+                <h1>{{header}}</h1>
+                Sebuah tempat sederhana untuk menyimpan ide,
+                catatan, pengalaman, dan hal-hal menarik yang
+                ingin saya ingat di masa depan.
+                </p>
 
-</div>
+                <a href="#" class="btn btn-primary btn-lg">
+                    Lihat Catatan
+                </a>
+            </div>
 
+            <div class="col-lg-6 text-center mt-4 mt-lg-0">
+                <img src="{% static 'img/dolp.png' %}" class="img-fluid" style="max-height:350px;" alt="Dolphin">
+            </div>
+
+        </div>
+    </div>
+    ```
+
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container text-center">
+
+        ```
+        <h2 class="fw-bold mb-4">
+            Tentang Website Ini
+        </h2>
+
+        <p class="text-muted col-lg-8 mx-auto">
+            Website ini adalah tempat pribadi untuk mencatat berbagai
+            pemikiran, pembelajaran, proyek, dan pengalaman sehari-hari.
+            Seperti lumba-lumba yang selalu menjelajah lautan,
+            saya juga ingin terus belajar hal-hal baru.
+        </p>
+
+    </div>
+    ```
+
+</section>
+
+<section class="py-5">
+    <div class="container">
+
+        ```
+        <h2 class="fw-bold text-center mb-5">
+            Catatan Terbaru
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Belajar Django
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Catatan perjalanan saya mempelajari
+                            framework Django dan pengembangan web.
+                        </p>
+
+                        <a href="#" class="btn btn-outline-primary">
+                            Baca
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Python Journey
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Kumpulan eksperimen dan proyek kecil
+                            menggunakan Python.
+                        </p>
+
+                        <a href="#" class="btn btn-outline-primary">
+                            Baca
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Daily Notes
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Catatan ringan mengenai aktivitas dan
+                            pengalaman sehari-hari.
+                        </p>
+
+                        <a href="#" class="btn btn-outline-primary">
+                            Baca
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    ```
+
+</section>
+
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+
+        ```
+        <h3 class="fw-bold">
+            "Keep swimming, keep learning."
+        </h3>
+
+        <p class="mb-0">
+            Seperti lumba-lumba yang terus menjelajah lautan,
+            jangan pernah berhenti belajar.
+        </p>
+
+    </div>
+    ```
+
+</section>
+
+<footer class="py-4 text-center">
+    <div class="container">
+        <p class="text-muted mb-0">
+            © 2026 Dolphin Notes - Personal Journal
+        </p>
+    </div>
+</footer>
+
+
+<!-- End home main page -->
 
 
 

@@ -1,31 +1,136 @@
 {%extends 'base.html'%}
 {%load static%}
 
-{%block title%}
-{{title}}
-{%endblock title%}
-
-{%block header%}
-{{header}}
-{%endblock header%}
-
-
-{%block content%}
-{{content}}
-{%endblock content%}
+{%block css%}
+<link rel="stylesheet" href="{%static 'about/css/style.css'%}">
+{%endblock css%}
 
 {%block main%}
 
+<section class="py-5 bg-light">
+    <div class="container">
 
-{% for about in showAbouts %}
+        ```
+        <div class="row align-items-center">
 
-<div style=" background-color: blue; border-color: aquamarine; border-radius: 10;">
-    <h1>judul : {{about.judul}}</h1>
-    <h3>penulis : {{about.author}}</h3>
-    <p>tanggal : {{about.date}}</p>
-</div>
+            <div class="col-lg-5 text-center">
+                <img src="{% static 'img/dolp.png' %}" class="img-fluid" style="max-height:350px;" alt="Dolphin Logo">
+            </div>
 
+            <div class="col-lg-7">
 
-{%endfor%}
+                <h1 class="fw-bold mb-4">
+                    Tentang Dolphin Notes 🐬
+                </h1>
+
+                <p class="lead text-muted">
+                    Selamat datang di Dolphin Notes, sebuah ruang kecil
+                    di internet yang saya gunakan untuk menyimpan berbagai
+                    catatan, ide, pengalaman, dan perjalanan belajar.
+                </p>
+
+                <p>
+                    Website ini dibuat sebagai proyek pribadi sekaligus
+                    tempat untuk mendokumentasikan hal-hal yang saya pelajari.
+                    Mulai dari pemrograman, teknologi, proyek kecil,
+                    hingga catatan sehari-hari yang menurut saya menarik
+                    untuk disimpan.
+                </p>
+
+                <p>
+                    Saya memilih tema lumba-lumba karena hewan ini dikenal
+                    cerdas, ramah, dan selalu aktif menjelajahi lautan.
+                    Filosofi tersebut menggambarkan keinginan saya untuk
+                    terus belajar, berkembang, dan menjelajahi hal-hal baru.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+    ```
+
+</section>
+
+<section class="py-5">
+    <div class="container">
+
+        ```
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">
+                Tujuan Website Ini
+            </h2>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <h4>📚</h4>
+                        <h5>Mencatat Pembelajaran</h5>
+
+                        <p class="text-muted">
+                            Menyimpan berbagai ilmu dan pengalaman yang
+                            saya dapatkan selama proses belajar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <h4>💡</h4>
+                        <h5>Menyimpan Ide</h5>
+
+                        <p class="text-muted">
+                            Tempat untuk menyimpan ide-ide yang mungkin
+                            berguna di masa depan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <h4>🚀</h4>
+                        <h5>Dokumentasi Proyek</h5>
+
+                        <p class="text-muted">
+                            Mendokumentasikan proyek dan perjalanan
+                            pengembangan website yang sedang dibuat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    ```
+
+</section>
+
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+
+        ```
+        <h2 class="fw-bold">
+            Filosofi Dolphin Notes
+        </h2>
+
+        <p class="lead mt-3">
+            "Terus belajar, terus berkembang, dan jangan takut
+            menjelajahi lautan pengetahuan yang luas."
+        </p>
+
+    </div>
+    ```
+
+</section>
+
 
 {%endblock main%}

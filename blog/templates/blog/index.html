@@ -1,37 +1,80 @@
-{%extends 'base.html'%}
-{%load static%}
+{% extends 'base.html' %}
+{% load static %}
 
-{%block title%}
-{{title}}
-{%endblock title%}
+{%block css%}
+<link rel="stylesheet" href="{% static 'blog/css/style.css'%}">
+{%endblock css%}
 
+{% block title %}
+{{ title }}
+{% endblock title %}
 
-{%block main%}
+{% block main %}
 
-<ul>
-    <li>
-        <a href="artikel">artikel</a>
-    </li>
-</ul>
+<div class="container py-5">
 
-{%block header%}
-{{header}}
-{%endblock header%}
+    ```
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">
+            🐬 Dolphin Blog
+        </h1>
 
+        <p class="text-muted">
+            Kumpulan catatan, pengalaman, dan perjalanan belajar.
+        </p>
+    </div>
 
-{%block content%}
-{{content}}
-{%endblock content%}
+    <!-- Artikel -->
+    <div class="row g-4">
 
+        {% for uppost in Posin %}
 
-{% for uppost in Posin%}
-<h1>{{uppost.title}}</h1>
-<p>{{uppost.body}}</p>
-<h3>{{uppost.category}}</h3>
-{%endfor%}
+        <div class="col-md-6 col-lg-4">
 
+            <div class="card h-100 shadow-sm border-0">
 
+                <div class="card-body">
 
+                    <span class="badge bg-primary mb-3">
+                        {{ uppost.category }}
+                    </span>
 
+                    <h4 class="card-title fw-bold">
+                        {{ uppost.title }}
+                    </h4>
 
-{%endblock main%}
+                    <p class="card-text text-muted">
+                        {{ uppost.body|truncatewords:25 }}
+                    </p>
+
+                </div>
+
+                <div class="card-footer bg-white border-0">
+
+                    <a href="#" class="btn btn-outline-primary">
+                        Baca Selengkapnya
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+            <div class="alert alert-info">
+                Belum ada artikel yang tersedia.
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+    ```
+
+</div>
+
+{% endblock main %}

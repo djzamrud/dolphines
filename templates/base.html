@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {% include 'snippets/css.html'%}
+
     {%block css%}
     {%endblock css%}
     <title>{%block title%}{%endblock title%}</title>
@@ -22,7 +24,12 @@
         {%endblock bg%}
 
     </div>
-    {% include 'snippets/nav.html' %}
+
+    <!-- Navbar -->
+
+    {% include 'snippets/nav.html'%}
+
+    <!-- end navbar -->
 
     <div>
         <h1>{%block header%}
@@ -43,6 +50,9 @@
     <img src="{% static image %}" alt="{{select}}">
     {%endfor%} -->
 
+
+
+    {% include 'snippets/js.html'%}
 
 </body>
 

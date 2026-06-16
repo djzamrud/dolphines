@@ -1,54 +1,96 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
 
-{%block title%}
-{{title}}
-{%endblock title%}
+{% block title %}
+{{ title }}
+{% endblock title %}
 
+{% block main %}
 
-{%block main%}
+<div class="container py-5">
 
-{% for contac in contacts %}
-<h1>{{team}}</h1>
+    ```
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">
+            🐬 Contact Me
+        </h1>
 
-<ul>
-    <li>{{contac.nama}}</li>
-    <li>{{contac.hp}}</li>
-    <li>{{contac.email}}</li>
-</ul>
+        <p class="text-muted">
+            Jika ingin bertanya, berdiskusi, atau sekadar menyapa,
+            silakan hubungi saya melalui informasi di bawah ini.
+        </p>
+    </div>
 
-{% endfor %}
+    <div class="row g-4">
 
+        <!-- Informasi Kontak -->
+        <div class="col-lg-4">
 
-{%block header%}
-{{header}}
-{%endblock header%}
+            {% for contac in contacts %}
 
+            <div class="card shadow-sm border-0 h-100">
 
-{%block content%}
-{{content}}
-{%endblock content%}
+                <div class="card-body">
 
+                    <h3 class="mb-4">
+                        {{ team }}
+                    </h3>
 
-<form method="post" action="">
-    {%csrf_token%}
+                    <p>
+                        <strong>👤 Nama</strong><br>
+                        {{ contac.nama }}
+                    </p>
 
-    <table>
-        {{personal}}
-    </table>
-    <button type="submit">KIrirm</button>
-</form>
+                    <p>
+                        <strong>📱 Telepon</strong><br>
+                        {{ contac.hp }}
+                    </p>
 
-<br><br><br>
+                    <p>
+                        <strong>📧 Email</strong><br>
+                        {{ contac.email }}
+                    </p>
 
-<form method="post" action="">
-    {%csrf_token%}
+                </div>
 
-    <table>
-        {{personal2.as_p}}
-    </table>
-    <button type="submit">Kirim</button>
-</form>
+            </div>
 
+            {% endfor %}
 
-{%endblock main%}
+        </div>
+
+        <!-- Form Kontak -->
+        <div class="col-lg-8">
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body">
+
+                    <h3 class="mb-4">
+                        Kirim Pesan
+                    </h3>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        {{ personal2.as_p }}
+
+                        <button type="submit" class="btn btn-primary">
+                            Kirim Pesan
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    ```
+
+</div>
+
+{% endblock main %}

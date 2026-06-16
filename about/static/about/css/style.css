@@ -1,5 +1,11 @@
-.bg_about {
-    width: 50rem;
-    height: auto;
+.card {
+    transition: all .3s ease;
+}
 
+.card:hover {
+    transform: translateY(-8px);
+}
+
+section {
+    overflow: hidden;
 }

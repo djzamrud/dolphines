@@ -1,44 +1,47 @@
-{%load static%}
+{% load static%}
 
-<style>
-    .nav {
-        display: flex;
-        justify-content: flex;
-        align-items: center;
-        background-color: rgb(104, 62, 255);
-        margin-top: 0px;
-        padding: 0;
-    }
+{% load static %}
 
-    ul li {
-        display: flex;
-        justify-content: center;
-        padding: 10px;
-        margin: 0;
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
 
+        <!-- Logo -->
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'img/dolp.png' %}" alt="Logo" style="height:45px;">
+        </a>
 
-    }
+        <!-- Tombol Hamburger -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+            aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    a {
-        text-decoration: none;
-        list-style: none;
-        color: aliceblue;
+        <!-- Menu Collapse -->
+        <div class="collapse navbar-collapse" id="navbarMain">
 
-    }
+            <!-- Menu Navigasi -->
+            <ul class="navbar-nav me-auto ms-3 mb-2 mb-lg-0">
 
-    .bg-logo {
-        width: 60px;
-        padding: 0;
-        margin: 0;
-    }
-</style>
-<nav>
+                {% for link, navbar in nav %}
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3" href="{{ link }}">
+                        {{ navbar }}
+                    </a>
+                </li>
+                {% endfor %}
 
-    <ul class="nav">
-        <li><img class="bg-logo" src="{%static 'img/dolp.png'%}" alt=""></li>
-        {% for url, menu in nav%}
-        <li><a href="{{url}}">{{menu}}</a></li>
-        {%endfor%}
-    </ul>
+            </ul>
 
+            <!-- Search -->
+            <form class="d-flex mt-3 mt-lg-0" role="search">
+                <input class="form-control me-2" type="search" placeholder="Cari..." aria-label="Search">
+
+                <button class="btn btn-primary" type="submit">
+                    Search
+                </button>
+            </form>
+
+        </div>
+
+    </div>
 </nav>

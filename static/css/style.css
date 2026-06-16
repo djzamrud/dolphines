@@ -1,5 +1,26 @@
-.bg-dolp {
-    width: 50rem;
-    height: auto;
+.hero {
+    background: linear-gradient(135deg,
+            #e0f7ff,
+            #ffffff);
+}
 
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.card {
+    border: none;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.navbar-brand img {
+    transition: .3s;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
 }

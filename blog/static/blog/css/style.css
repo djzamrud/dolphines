@@ -1,4 +1,11 @@
-.bg-dolp {
-    width: 50rem;
-    height: auto;
+.card {
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card-title {
+    min-height: 60px;
 }
