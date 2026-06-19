@@ -34,8 +34,6 @@ if IS_RAILWAY:
     DEBUG = False
     ALLOWED_HOSTS = ['*']
     CSRF_TRUSTED_ORIGINS = ['https://pelatihlumba.up.railway.app', 'https://*.railway.app']
-    
-    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
     # 🎯 Di Railway: Otomatis upload gambar dilempar ke Supabase Storage secara permanen
     STORAGES = {
