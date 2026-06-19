@@ -1,0 +1,263 @@
+<style>
+    :root {
+        --primary: #50616b;
+        --primary-container: #e0f2fe;
+        --on-primary-container: #5e6f79;
+        --secondary: #695a64;
+        --secondary-container: #efdae6;
+        --on-secondary-container: #6e5e68;
+        --surface: #f7f9fb;
+        --on-surface: #191c1e;
+        --on-surface-variant: #43474b;
+        --background: #f7f9fb;
+        --outline-variant: #c3c7cb;
+        --radius-default: 1rem;
+        --radius-lg: 2rem;
+        --radius-xl: 3rem;
+        --font-headline: 'Plus Jakarta Sans', sans-serif;
+        --font-body: 'Be Vietnam Pro', sans-serif;
+    }
+
+    body {
+        background-color: var(--background);
+        font-family: var(--font-body);
+        color: var(--on-surface);
+        overflow-x: hidden;
+    }
+
+
+
+
+    /* Main Content Styling */
+    main {
+        padding-top: 5rem;
+        padding-bottom: 12rem;
+        position: relative;
+    }
+
+    .cloud-shadow {
+        box-shadow: 0px 10px 40px rgba(224, 242, 254, 0.8);
+    }
+
+    .island-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        height: 100%;
+    }
+
+    .badge-bubbly {
+        background-color: var(--secondary-container);
+        color: var(--on-secondary-container);
+        border-radius: 9999px;
+        padding: 0.5rem 1.25rem;
+        font-weight: 600;
+        font-size: 0.875rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .headline-xl {
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    .body-lg {
+        font-size: 1.125rem;
+        color: var(--on-surface-variant);
+        max-width: 40rem;
+        margin: 0 auto;
+    }
+
+    /* Info Items */
+    .info-item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .info-icon-wrapper {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info-icon-primary {
+        background-color: var(--primary-container);
+        color: var(--primary);
+    }
+
+    .info-icon-secondary {
+        background-color: var(--secondary-container);
+        color: var(--secondary);
+    }
+
+    /* Image Card */
+    .image-card {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+        border-radius: var(--radius-xl);
+        margin-top: 1.5rem;
+    }
+
+    .image-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s;
+    }
+
+    .image-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem;
+        background: linear-gradient(to top, rgba(80, 97, 107, 0.4), transparent);
+        color: white;
+    }
+
+    /* Form Styling */
+    .form-label-custom {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: var(--on-surface-variant);
+        margin-left: 1rem;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .form-control-custom {
+        background-color: rgba(224, 242, 254, 0.3);
+        border: none;
+        border-radius: 9999px;
+        padding: 1rem 2rem;
+        font-family: var(--font-body);
+    }
+
+    .form-control-custom:focus {
+        background-color: rgba(224, 242, 254, 0.4);
+        box-shadow: 0 0 0 4px var(--primary-container);
+        outline: none;
+    }
+
+    textarea.form-control-custom {
+        border-radius: var(--radius-lg);
+        padding: 1.5rem 2rem;
+    }
+
+    .btn-splash {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 9999px;
+        padding: 1rem 2rem;
+        font-family: var(--font-headline);
+        font-weight: 700;
+        font-size: 1.25rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.3s;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-splash:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        color: white;
+    }
+
+    .btn-splash:active {
+        transform: scale(0.95);
+    }
+
+    /* Decorative elements */
+    .floating-dolphin {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0.2;
+        animation: float 6s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-20px) rotate(5deg);
+        }
+    }
+
+ 
+
+   
+
+    /* Footer */
+    .custom-footer {
+        background-color: var(--primary-container);
+        border-radius: 4rem 4rem 0 0;
+        padding: 4rem 1rem;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0px -10px 40px rgba(224, 242, 254, 0.5);
+    }
+
+    .footer-brand {
+        font-size: 2rem;
+        color: var(--on-primary-container);
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-link {
+        text-decoration: none;
+        color: rgba(94, 111, 121, 0.8);
+        transition: opacity 0.3s;
+    }
+
+    .footer-link:hover {
+        opacity: 0.7;
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .island-card {
+            padding: 1.5rem;
+        }
+    }
+</style>

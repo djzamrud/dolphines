@@ -1,0 +1,189 @@
+<style>
+    :root {
+        --primary: #50616b;
+        --primary-container: #e0f2fe;
+        --on-primary-container: #5e6f79;
+        --secondary-container: #efdae6;
+        --on-secondary-container: #6e5e68;
+        --tertiary-container: #e2f3eb;
+        --on-tertiary-container: #607069;
+        --background: #f7f9fb;
+        --surface: #ffffff;
+        --on-surface: #191c1e;
+        --on-surface-variant: #43474b;
+        --radius-bubbly: 2rem;
+        --radius-pill: 9999px;
+        --shadow-soft: 0px 20px 40px rgba(224, 242, 254, 0.6);
+        --shadow-island: 0px 30px 60px rgba(224, 242, 254, 0.4);
+    }
+
+    body {
+        background-color: var(--background);
+        color: var(--on-surface);
+
+        overflow-x: hidden;
+    }
+
+
+
+    .hero-section {
+        padding-top: 10rem;
+        padding-bottom: 6rem;
+        position: relative;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-text {
+        font-size: 1.125rem;
+        color: var(--on-surface-variant);
+        max-width: 700px;
+        margin: 0 auto 3rem;
+    }
+
+    .floating-island {
+        background: var(--surface);
+        border-radius: var(--radius-bubbly);
+        box-shadow: var(--shadow-island);
+        transition: transform 0.3s ease;
+        border: none;
+    }
+
+    .floating-island:hover {
+        transform: translateY(-8px);
+    }
+
+    .timeline-bubble {
+        padding: 2.5rem;
+        border-radius: var(--radius-bubbly);
+    }
+
+    .badge-pill-custom {
+        background: rgba(255, 255, 255, 0.5);
+        padding: 0.25rem 1rem;
+        border-radius: var(--radius-pill);
+        font-size: 0.875rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+
+    .skill-tag {
+        background: var(--surface);
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius-pill);
+        font-weight: 600;
+        font-size: 0.875rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0.5rem;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .skill-tag:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+    .icon-box {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+
+    .timeline-icon-main {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-box {
+        background-color: var(--primary-container);
+        border-radius: var(--radius-bubbly);
+        padding: 4rem 2rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 60px -15px rgba(80, 97, 107, 0.15) !important;
+    }
+
+    .btn-bubbly {
+        background-color: var(--primary);
+        color: white;
+        border-radius: var(--radius-pill);
+        padding: 0.75rem 2.5rem;
+        font-weight: 600;
+        border: none;
+        transition: all 0.2s ease;
+        box-shadow: 0 10px 20px rgba(80, 97, 107, 0.3);
+    }
+
+    .btn-bubbly:hover {
+        transform: scale(1.05);
+        background-color: #384953;
+        color: white;
+    }
+
+
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    .float-animation {
+        animation: float 5s ease-in-out infinite;
+    }
+
+    .ambient-glow {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        filter: blur(100px);
+        z-index: -1;
+        border-radius: 50%;
+    }
+
+    /* Responsive timeline fixes */
+    @media (max-width: 767.98px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .timeline-item {
+            text-align: center;
+        }
+
+        .timeline-icon-col {
+            display: none;
+        }
+    }
+</style>

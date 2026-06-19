@@ -5,92 +5,139 @@
 {{ title }}
 {% endblock title %}
 
+{%block css%}
+
+{%endblock css%}
+
 {% block main %}
 
-<div class="container py-5">
+{% include 'contact/snippets/css.html'%}
 
-    ```
-    <!-- Header -->
-    <div class="text-center mb-5">
-        <h1 class="fw-bold">
-            🐬 Contact Me
-        </h1>
-
-        <p class="text-muted">
-            Jika ingin bertanya, berdiskusi, atau sekadar menyapa,
-            silakan hubungi saya melalui informasi di bawah ini.
-        </p>
+<main>
+    <!-- Background Decals -->
+    <div class="floating-dolphin" style="top: 10%; left: 5%;">
+        <span class="material-symbols-outlined" style="font-size: 120px; color: var(--primary);">skateboarding</span>
     </div>
-
-    <div class="row g-4">
-
-        <!-- Informasi Kontak -->
-        <div class="col-lg-4">
-
-            {% for contac in contacts %}
-
-            <div class="card shadow-sm border-0 h-100">
-
-                <div class="card-body">
-
-                    <h3 class="mb-4">
-                        {{ team }}
-                    </h3>
-
-                    <p>
-                        <strong>👤 Nama</strong><br>
-                        {{ contac.nama }}
-                    </p>
-
-                    <p>
-                        <strong>📱 Telepon</strong><br>
-                        {{ contac.hp }}
-                    </p>
-
-                    <p>
-                        <strong>📧 Email</strong><br>
-                        {{ contac.email }}
-                    </p>
-
-                </div>
-
+    <div class="floating-dolphin" style="top: 50%; right: -50px; opacity: 0.1; animation-delay: -2s;">
+        <span class="material-symbols-outlined" style="font-size: 200px; color: var(--secondary);">waves</span>
+    </div>
+    <div class="container">
+        <!-- Hero Header -->
+        <div class="text-center mb-5">
+            <div class="badge-bubbly">
+                <span class="material-symbols-outlined" style="font-size: 18px;">auto_awesome</span>
+                Let's chat! 💌
             </div>
-
-            {% endfor %}
-
+            <h1 class="headline-xl">Let's build something <br class="d-none d-md-block" /> bubbly together.</h1>
+            <p class="body-lg">
+                Whether you have a cool project in mind, want to talk about design, or just want to send a friendly
+                hello—I'm all ears! ✨
+            </p>
         </div>
-
-        <!-- Form Kontak -->
-        <div class="col-lg-8">
-
-            <div class="card shadow-sm border-0">
-
-                <div class="card-body">
-
-                    <h3 class="mb-4">
-                        Kirim Pesan
-                    </h3>
-
-                    <form method="post">
+        <div class="row g-4 position-relative" style="z-index: 1;">
+            <!-- Info Column -->
+            <div class="col-lg-5">
+                <div class="island-card cloud-shadow">
+                    <div class="info-item">
+                        <div class="info-icon-wrapper info-icon-primary">
+                            <span class="material-symbols-outlined">alternate_email</span>
+                        </div>
+                        <div>
+                            <h3 class="h5 mb-1">Email Me</h3>
+                            <p class="mb-0 text-muted">asepsaifulzamrud@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item mb-0">
+                        <div class="info-icon-wrapper info-icon-secondary">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <div>
+                            <h3 class="h5 mb-1">Current Base</h3>
+                            <p class="mb-0 text-muted"> Cah KOJA, Jakarta, Indonesia (Remote)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-card cloud-shadow">
+                    <img alt="Dolphin digital illustration"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuABWQxzs4gDFU6Xp6NJvhTKm4Gzpw-86Wo5A4AwiIKuLARAJZhG8H0f0CR9xo_V83kvTa5L9b_ntg9PljtGdG32JrEL9dQFKd3znEzsWYl6j5Tidn4te_WyYaA9JTVljbUts2MyVZo3URpJqefUs5ySTKc5WudoohRWc5LpQml25sjd-qqPPge04bCVb6oP2bNGKGJw5PEwY3eWXYEk8KVQkXPMmlWPH5JtjtxbtaDP5ITFzYpeSTrKYDVQOFgS-RZ4KG47u70XR7k" />
+                    <div class="image-overlay">
+                        <h3 class="h5 mb-0">Dolphin Dreams</h3>
+                        <p class="small mb-0 opacity-75">Always moving forward ✨</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Form Column -->
+            <div class="col-lg-7">
+                <div class="island-card cloud-shadow">
+                    <form id="contactForm" method="POST" action="">
                         {% csrf_token %}
 
-                        {{ personal2.as_p }}
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label-custom">YOUR NAME</label>
+                                <input class="form-control form-control-custom" placeholder="Dolphin Friend" type="text"
+                                    name="nama" required />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label-custom">YOUR EMAIL</label>
+                                <input class="form-control form-control-custom" placeholder="friend@ocean.com"
+                                    type="email" name="email" required />
+                            </div>
+                        </div>
 
-                        <button type="submit" class="btn btn-primary">
-                            Kirim Pesan
+                        <div class="mb-4">
+                            <label class="form-label-custom">YOUR PHONE NUMBER</label>
+                            <input class="form-control form-control-custom" placeholder="081234567890" type="text"
+                                name="no_hp" maxlength="12" required />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label-custom">THE MESSAGE</label>
+                            <textarea class="form-control form-control-custom"
+                                placeholder="Let's build something magical together (hehehe)..." rows="5" name="pesan"
+                                required></textarea>
+                        </div>
+
+                        <button class="btn-splash" type="submit">
+                            Send Splash
+                            <span class="material-symbols-outlined btn-icon">send</span>
                         </button>
-
                     </form>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-    ```
+</main>
 
-</div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Micro-interaction for the form submit
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Tahan dulu sebentar buat animasi
+
+        const form = e.target; // 🎯 Simpan referensi form-nya
+        const btn = form.querySelector('button');
+        const originalContent = btn.innerHTML;
+
+        btn.innerHTML = '<span class="material-symbols-outlined spinner-border spinner-border-sm" role="status"></span> Splashing...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            btn.innerHTML = 'Sent! ✨';
+            btn.style.backgroundColor = 'var(--secondary)';
+
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.style.backgroundColor = 'var(--primary)';
+                btn.disabled = false;
+
+                // 🎯 JALAN KELUAR: Setelah animasi selesai, gaskan submit beneran ke Django!
+                form.submit();
+
+            }, 1500); // Kita potong durasinya jadi 1.5 detik biar user gak kelamaan nunggu pindah halaman
+        }, 1500);
+    });
+</script>
 
 {% endblock main %}

@@ -1,14 +1,25 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from blog import models as blogModel
 
 def index(request):
+
+    blog = blogModel.Home.objects.all()
+
     context = {
-        'title' : 'Home',
+
+        
+
+
+        'title' : 'DJZA | Dolphines 🐬',
         'header' : 'Welcome to Mywebsite',
-        'content' : 'This home page for first destinatin when you visited mywebsite',
+        'content' : blog,
         'img_logo' : [
              ['img/dolp2.jpg' , 'dolp2'], 
-        ]
+        ],
+        
+
+        
     }
 
     if request.method == 'POST':

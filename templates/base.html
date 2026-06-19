@@ -1,57 +1,41 @@
-{%load static%}
-
+{% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="scroll-smooth" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {% include 'snippets/css.html'%}
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     {%block css%}
+
     {%endblock css%}
-    <title>{%block title%}{%endblock title%}</title>
+
+
+    <title>{%block title%}{{title}}{%endblock title%}</title>
+    <!-- Bootstrap 5 CSS -->
+
+    {% include 'snippets/css.html' %}
+
+
+
 </head>
 
 <body>
 
-
-    <div>
-        {%block bg%}
-
-        {%endblock bg%}
-
-    </div>
-
-    <!-- Navbar -->
-
+    <!-- Navigation -->
     {% include 'snippets/nav.html'%}
+    <!-- endNav -->
 
-    <!-- end navbar -->
+    <main>
+        {% block main %}
+        {% endblock main %}
+    </main>
 
-    <div>
-        <h1>{%block header%}
-            {%endblock header%}
-        </h1>
-
-        <h2>
-            {%block content%}
-            {%endblock content%}
-        </h2>
-    </div>
-
-    {%block main%}
-
-    {%endblock main%}
-
-    <!-- {%for image, select in img %}
-    <img src="{% static image %}" alt="{{select}}">
-    {%endfor%} -->
-
-
-
+    <!-- Footer -->
+    {% include 'snippets/footer.html' %}
+    <!-- Bootstrap JS -->
     {% include 'snippets/js.html'%}
 
 </body>

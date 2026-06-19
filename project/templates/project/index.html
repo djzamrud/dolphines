@@ -1,0 +1,181 @@
+{% extends 'base.html'%}
+
+{% block main %}
+
+{% include 'project/snippets/css.html'%}
+
+<main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section position-relative">
+        <div class="position-absolute top-0 start-50 translate-middle-x opacity-25" style="z-index: -1;">
+            <span class="material-symbols-outlined dolphin-float"
+                style="font-size: 120px; color: var(--primary-fixed-dim); transform: translate(15.475px, 1.05px);">water_drop</span>
+        </div>
+        <h1 class="display-4 mb-3">My Sea of Creations 🚀</h1>
+        <p class="lead text-secondary mx-auto" style="max-width: 650px;">
+            Explore a collection of fun little experiments and bigger waves.
+            Each project is crafted with a splash of joy and a ripple of curiosity. ✨
+        </p>
+    </section>
+    <!-- Projects Grid -->
+    <div class="row g-4">
+        <!-- Project Card 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="project-card">
+                <div class="mb-4">
+                    <img alt="Coral Cloud Monitor"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWKxVQATx0qn99ZlHfrS_0RxDEtnAR4a9rtP2Zm76h-DatCTRRIWMk7o7p6fiX5wMd5uuPS82cVcrus5d726ZupuC_tFdWdczP7v3kpOygIqvrXAbOXbH37FEycCIASbikycPvM1AsXU6UPxB9_HBK4RNq0cflux2qrJhqx-MNOcJriPWXPqyi91cZ57OFx8CYwrEp9OhvNwZ06kZ1wJK1m82r_9KoQTHQJidPH_dqKd3hlj__k2-CYSXwyW7lt3xY6zvo8G15gUw"
+                        class="">
+                </div>
+                <div class="mb-3">
+                    <span class="tag"
+                        style="background: var(--secondary-container); color: var(--on-secondary-container);">☁️
+                        Cloud</span>
+                    <span class="tag"
+                        style="background: var(--tertiary-container); color: var(--on-tertiary-container);">🐚
+                        Coral</span>
+                </div>
+                <h3 class="h4 mb-2">Coral Cloud Monitor</h3>
+                <p class="text-secondary small mb-4">
+                    A vibrant dashboard that visualizes server health as a living coral reef ecosystem. Watch your
+                    data thrive!
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn-wave">View Waves</button>
+                    <span class="material-symbols-outlined" style="color: var(--primary-fixed-dim);">spark</span>
+                </div>
+            </div>
+        </div>
+        <!-- Project Card 2 (Featured Wide) -->
+        <div class="col-12 col-lg-8">
+            <div class="project-card featured-card">
+                <div class="row align-items-center h-100">
+                    <div class="col-md-6">
+                        <img alt="Hydro-Pulse Sensor"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY_4mqHz-YEFlYmqrpKBywUlRghi3CzSZlNm9MMfv2x87r4IccI2ka50QwtleXmd7HE9WL3XRCzXGmcp2GLJl740SmTx9NsJib7xZOnTZwrNCm3u8VqUa5D7YXKUD-pGIN5s3u7sYXsz95pv2hBuyUvKmQH__RBs3QqxudAHTunGNGxGo5MyGMh1ekt4r8W2CrB6HU3xE1irAJvLbPyTKTr65nLoJls4eh-eAAeHy1uQvDR6gmYIE7IgnTzixLp18qiHJybtjKnL8"
+                            style="height: 100%; min-height: 250px;" class="">
+                    </div>
+                    <div class="col-md-6 mt-4 mt-md-0">
+                        <div class="mb-3">
+                            <span class="tag" style="background: rgb(211, 229, 241); color: rgb(12, 30, 38);">🌊
+                                IoT</span>
+                            <span class="tag" style="background: rgb(241, 221, 233); color: rgb(81, 67, 76);">⚡
+                                Pulse</span>
+                        </div>
+                        <h3 class="h4 mb-2">Hydro-Pulse Sensor</h3>
+                        <p class="text-secondary small mb-4">
+                            An experimental IoT project tracking real-time water flow dynamics. It uses tactile
+                            haptics to let you "feel" the current across the globe.
+                        </p>
+                        <button class="btn-wave"
+                            style="background: var(--secondary-container); color: var(--on-secondary-container);">Explore
+                            Current</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Project Card 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="project-card">
+                <div class="mb-4">
+                    <img alt="Bubble Chat 2.0"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlLBoE_kCSQPAcrwAvqYxxt_oy_SKpmkxUJcuNnyJTqQbBYgF79wxVIS6a5fej76trG_yYCzsQVXe9JsY8GvSoYKH8wGoExnqyuI431LIBm104VtPWgsm7IgjnwybjyP45dj8a3s1gNXBMLqW0NpTsLIBLD_EeW14inqarlnIKnnyssC7h-DlBVEIAsaPPd5aiDxOvNNoOPsm2_eY4VZ5iubx5paRY9KmMmjflrJ0jpY85XOq-YHNudHFVBg2V4lhKB20ocdHLciY"
+                        class="">
+                </div>
+                <div class="mb-3">
+                    <span class="tag" style="background: rgb(213, 230, 223); color: rgb(59, 74, 68);">💬
+                        Social</span>
+                </div>
+                <h3 class="h4 mb-2">Bubble Chat 2.0</h3>
+                <p class="text-secondary small mb-4">
+                    Why text when you can send bubbles? A minimalist messaging experiment focused on playful physics
+                    and tactile feedback.
+                </p>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined text-primary"
+                        style="font-variation-settings: &quot;FILL&quot; 1;">favorite</span>
+                    <span class="small fw-bold text-muted">1.2k Fans</span>
+                </div>
+            </div>
+        </div>
+        <!-- Project Card 4 -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="project-card" style="background-color: var(--primary-container);">
+                <div class="mb-4">
+                    <img alt="Pearl Data Vault"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZqjLXIKw-Wp4y29XnscoIdvU7THXkeBIX4Bt5cydoujvLX551QYQLvLnbdal8JXRfSQLXmWyF7Sj2P-bTfnJP6tt_xn4kl-in0RpwwGXUN8QOWCwgJEDCarbLXBXYAbH_aHIQwPfS7EiPS4nUbq4WtO6Kwx-XAOPxFY2loRrdG-Dbxwosl2e0ufPBl8qllBP0OVEVxzSGkRx_7aNebt7UQVvDS2TbdbDspkQ7L2Sq44Wl3ruIyx0dN4Jd_DKFtau5c4vFzqokrGo"
+                        class="">
+                </div>
+                <h3 class="h4 mb-2" style="color: var(--on-primary-container);">Pearl Data Vault</h3>
+                <p class="small mb-4" style="color: rgba(94, 111, 121, 0.9);">
+                    A ultra-secure encryption wrapper that treats your sensitive files like rare deep-sea treasures.
+                    Keep it safe in the shell!
+                </p>
+                <div class="d-flex gap-2">
+                    <span class="tag bg-white bg-opacity-50 border-0 m-0">🔒 Secure</span>
+                    <span class="tag bg-white bg-opacity-50 border-0 m-0">✨ Crypto</span>
+                </div>
+            </div>
+        </div>
+        <!-- Project Card 5 -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="project-card">
+                <div class="mb-4 d-flex align-items-center justify-content-center"
+                    style="background: #e6e8ea; border-radius: var(--radius-default); height: 200px;">
+                    <span class="material-symbols-outlined"
+                        style="font-size: 64px; color: rgb(195, 199, 203);">view_in_ar</span>
+                </div>
+                <div class="mb-3">
+                    <span class="tag"
+                        style="background: var(--secondary-container); color: var(--on-secondary-container);">📔
+                        Journal</span>
+                </div>
+                <h3 class="h4 mb-2">Deep Sea Log</h3>
+                <p class="text-secondary small mb-4">
+                    An immersive journaling tool that uses ambient ocean sounds and bioluminescent themes to help
+                    you dive deep into your thoughts.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="avatar-stack">
+                        <div style="background-color: var(--primary);"></div>
+                        <div style="background-color: #695a64;"></div>
+                        <div style="background-color: #52625c;"></div>
+                    </div>
+                    <span class="text-muted small fw-bold">Active Beta</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Decorative Divider -->
+
+</main>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Micro-interaction for project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mousedown', () => {
+            card.style.transform = 'scale(0.98)';
+        });
+        card.addEventListener('mouseup', () => {
+            card.style.transform = '';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // Simple floating effect for the hero icon
+    document.addEventListener('mousemove', (e) => {
+        const icon = document.querySelector('.dolphin-float');
+        const x = (window.innerWidth - e.pageX) / 80;
+        const y = (window.innerHeight - e.pageY) / 80;
+        if (icon) {
+            icon.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    });
+</script>
+
+
+{% endblock main %}

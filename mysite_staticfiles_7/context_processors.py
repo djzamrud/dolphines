@@ -1,11 +1,13 @@
 def global_nav(request):
     return  {
-    'nav' : [
-        ['/' , 'Home'],
-        ['about' , 'About'],
-        ['blog' , 'Blog'],
-        ['contact' , 'Contact'],
-    ]
+   'nav' : [
+            [ 'index' , 'Home'],
+            [ 'blog:index' , 'My Blog 📝'],
+            [ 'project:index' , 'My Project 🚀'],
+            [ 'about:index' , 'About Me 😊'],
+            [ 'contact:index' , 'Contact Me 💌'],
+
+        ]
 }
 
 def bg_global (request):

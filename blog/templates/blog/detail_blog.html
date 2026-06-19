@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{%block main%}
+
+{% include 'blog/snippets/detail.html'%}
+
+
+
+
+<main class="container my-5 pt-4">
+    <div class="row g-5">
+        <!-- Header Row -->
+        <div class="col-12 mb-4">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="pill-tag pill-tag-secondary mb-4">
+                        <span class="material-symbols-outlined fs-5">category</span> {{blog.category}}
+                    </div>
+                    <h1 class="display-4 text-primary mb-4">{{blog.title}}
+                    </h1>
+                    <div class="article-meta">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="material-symbols-outlined fs-5">calendar_today</span>
+                            <span class="">{{blog.post_at}}</span>
+                        </div>
+                        <div class="dot-separator"></div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="material-symbols-outlined fs-5">edit_note</span>
+                            <span class="">{{blog.penulis}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="hero-img-container">
+                        <div class="star-badge">
+                            <span class="material-symbols-outlined text-tertiary fs-2 fill-1">star</span>
+                        </div>
+                        <img alt="3D Learning Scene" class="img-fluid rounded-3xl" src="{{blog.image.url}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content & Sidebar -->
+        <div class="col-lg-8">
+            <div class="cloud-card">
+                <article> {{blog.body | safe }}
+                </article>
+                <footer class="mt-5 pt-4 border-top d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-dolphin d-flex align-items-center gap-2">
+                            <span class="material-symbols-outlined fs-5">favorite</span> Like this Note
+                        </button>
+                        <button
+                            class="btn btn-light rounded-circle p-3 d-flex align-items-center justify-content-center">
+                            <span class="material-symbols-outlined text-primary">share</span>
+                        </button>
+                    </div>
+                    <div class="tag-list d-flex gap-2">
+                        <span class="badge">#python</span>
+                        <span class="badge">#programming</span>
+                        <span class="badge">#tips</span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Back Button -->
+            <a class="sidebar-item back-link" href="{% url 'blog:index' %}">
+                <div class="back-icon">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </div>
+                <div>
+                    <div class="fw-bold text-primary">Back to Archive</div>
+                    <div class="small text-muted">Explore all notes</div>
+                </div>
+            </a>
+            <!-- Mascot Card -->
+            <div class="sidebar-item bg-primary-container border-0 text-center">
+                <img alt="Dolphin Mascot" class="img-fluid rounded-3xl mb-4"
+                    src="https://lh3.googleusercontent.com/aida/AP1WRLvJUHE870UgJvX_8ZBp6ftiMcs36kzYhSHXDTklelE7rAZEW2GdSTmZN7GcW6HfW0lM9-s5qBg7cBwPP5y-JNfsc1gVz1tmJIYgxQqzDJWp_E867WpdDqlj8vSH0mIrbd005fRNEvB9NkkDwWSx89GCKIPXdqi8Jx7njlyGat8Tu5KlUGr7TGyI7EoQcRIWX6ckTppnIEhbZomXIIP1iDbkYClbvmJu0QDm9gUOQ-UDZlibMKzVIorNYrI">
+                <h4 class="text-primary mb-2">Learning with Dolphin</h4>
+                <p class="small text-muted">"Coding should feel as playful as a splash in the waves. Never stop
+                    exploring!"</p>
+            </div>
+            <!-- Related Notes -->
+            <div class="cloud-card p-4">
+                <h4 class="text-primary mb-4">Related Notes</h4>
+                <div class="related-notes-list">
+                    {% for pos in semua_blog %}
+                    <a class=" py-0 mb-0 related-note-item" href="{% url 'blog:detail_blog' pos.id %}">
+                        <div class="small text-secondary mb-1">{{pos.category}}</div>
+                        <h5 class="">{{pos.title}}</h5>
+                        <p class="small text-muted mb-0 text-truncate">
+                            <small>{{pos.body | truncatewords_html:10| safe}}</small>
+                        </p>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Newsletter -->
+            <div class="newsletter-card">
+                <div class="newsletter-icon">
+                    <span class="material-symbols-outlined fs-2">mail</span>
+                </div>
+                <h4 class="text-secondary mb-2">Ocean Updates</h4>
+                <p class="small text-muted mb-4">Get my latest notes and dolphin doodles delivered once a month.</p>
+                <form onsubmit="event.preventDefault()">
+                    <input class="form-control form-control-dolphin mb-3" placeholder="Your email..." type="email">
+                    <button class="btn btn-dolphin w-100 py-3">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+{%endblock main%}

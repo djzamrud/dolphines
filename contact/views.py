@@ -1,26 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
 from .models import kontak
 
-from contact import forms
-
 def index(request):
 
-    dataDiri = forms.data
-    print(dataDiri)
+    kontaks = kontak.objects.all()
+    form = None
 
     if request.method == 'POST':
-        form = forms.postKontak(request.POST)
-        if form.is_valid():
-            form.save()
-            print('halaman sukses')
-    else:
-        form = forms.postKontak()
+        print('POST Masuk')
+        kontak.objects.create(
+            nama = request.POST.get('nama'),
+            no_hp = request.POST.get('no_hp'),
+            email = request.POST.get('email'),
+            pesan = request.POST.get('pesan'),
+        )
+        print("Data sukses tersimpan via ORM!")
+        return redirect (request.path)
     
 
-    kontaks = kontak.objects.all()
+
     context = {
         'title' : 'Contact',
         'header' : 'Contact us For help',
@@ -30,8 +31,7 @@ def index(request):
             ['img/dolp4.jpg', 'dolp4'],
         ],
         'contacts' : kontaks,
-        'personal' : dataDiri,
-        'personal2' : form
+        'pesan' : form
 
     }
     return render (request, 'contact/index.html', context)

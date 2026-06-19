@@ -1,0 +1,60 @@
+{% load static %}
+
+<footer class="mt-5 pt-5 pb-4 position-relative"
+    style="background-color: rgba(224, 242, 254, 0.4); backdrop-filter: blur(10px);">
+    <div class="position-absolute top-0 start-0 w-100 translate-middle-y wave-container" style="z-index: -1;">
+        <svg preserveaspectratio="none" style="width: 100%; height: 80px; fill: rgba(224, 242, 254, 0.4);"
+            viewbox="0 0 1200 120">
+            <path
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86C284.89,63.13,259.4,106.67,211,115c-63.7,11-151.29,3.41-211-19.2V120H1200V95.8C1132.19,118.89,1055.71,111.31,985.66,92.83Z">
+            </path>
+        </svg>
+    </div>
+    <div class="container text-center">
+        <div class="mb-4 d-flex justify-content-center align-items-center gap-3">
+            <img alt="Footer Logo"
+                src="https://lh3.googleusercontent.com/aida/AP1WRLsouarB9wCBRcy9HCjkaIN-4PxW73UpifGgukLiVqfGAin2JQ4NHAyL8noLicSkm9whfiJhAvpn1e_lmcI17A5R1i9a8pjvTLeGp7Jl9ldUrf0QwjQOmfdynDPieQrRHMNUmx82lmY_QjuV4c9ajPuXAeDeIia9qod_tL4VgpIQz6FYH9hYTY-DZDG89p79upqpzEZWQuwkmgiuE5uOkzN51PZOQMJOw9DsFZlMRqrKLZlKWBNecHxssCs"
+                style="width: 48px; height: 48px; filter: grayscale(0.5);" />
+            <h2 class="h3 fw-bold text-primary-custom mb-0">Djza</h2>
+        </div>
+        <div class="d-flex justify-content-center gap-4 mb-5">
+            <a class="nav-link-custom" href="/">Home</a>
+            <a class="nav-link-custom" href="{% url 'blog:index'%}">Blog</a>
+            <a class="nav-link-custom" href="{% url 'project:index'%}">Projects</a>
+            <a class="nav-link-custom" href="{% url 'contact:index'%}">Contact</a>
+        </div>
+        <div class="d-flex justify-content-center gap-3 mb-5">
+            <a class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center"
+                href="https://www.linkedin.com/in/asepsaepuljamrud/" target="_blank"
+                style="width: 40px; height: 40px; border-color: rgba(0,0,0,0.1);">
+                <i class="bi bi-linkedin fs-5"></i>
+            </a>
+
+            <a class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center"
+                href="https://instagram.com/djzamrud" target="_blank"
+                style="width: 40px; height: 40px; border-color: rgba(0,0,0,0.1);">
+                <i class="bi bi-instagram fs-5"></i>
+            </a>
+
+            <a class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center"
+                href="https://www.youtube.com/@Djzamrud" target="_blank"
+                style="width: 40px; height: 40px; border-color: rgba(0,0,0,0.1);">
+                <i class="bi bi-youtube fs-5"></i>
+            </a>
+
+            <a class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center"
+                href="https://tiktok.com/@djzamrud" target="_blank"
+                style="width: 40px; height: 40px; border-color: rgba(0,0,0,0.1);">
+                <i class="bi bi-tiktok fs-5"></i>
+            </a>
+            <a class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center"
+                href="https://github.com/djzamrud" target="_blank"
+                style="width: 40px; height: 40px; border-color: rgba(0,0,0,0.1);">
+                <i class="bi bi-github fs-5"></i>
+            </a>
+
+        </div>
+        <p class="text-muted mb-2">Made with <span class="text-danger">💖</span> and 🌊 by Djzamrud</p>
+        <p class="small text-secondary opacity-50">© 2026 Dolphin Dreams Studio ✨</p>
+    </div>
+</footer>

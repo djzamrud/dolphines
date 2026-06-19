@@ -1,20 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
-from .models import Post
+from blog import models
+
 
 def index(request):
 
-    Posts = Post.objects.all()
+    blogs =  models.Post.objects.all()
 
     context = {
         'title' : 'Blog',
-        'header' : 'Welcome to blog page',
-        'content' : 'Blog is place to information for your needs',
-        'img_logo' : [
-             ['blog/img/dolp3.jpg' , 'dolp3'], 
-        ],
-        'Posin' : Posts
+        'blog' : blogs
     }
     return render (request, 'blog/index.html', context)
+
+def detail_blog(request, id):
+    artikel = get_object_or_404(models.Post, id=id)
+    artikel_lain = models.Post.objects.exclude(id=id)[:3]
+
+    context = {
+        'blog' : artikel,
+        'semua_blog': artikel_lain
+    }
+
+    return render (request, 'blog/detail_blog.html', context)
