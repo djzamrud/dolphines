@@ -19,35 +19,39 @@ SECRET_KEY = 'django-insecure-w4klo4p2tbuy_f@&q3569s8j(4xq6tivs(%6=zm&a&am7^23=t
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'blacksider.pythonanywhere.com']
 
 
+#==========================================
+# 🧠 SELEKSI OTOMATIS MODERN: LAPTOP VS RAILWAY + SUPABASE
 # ==========================================
-# 🧠 SELEKSI OTOMATIS: LAPTOP VS PRODUCTION SERVER
-# ==========================================
-# Kita cek apakah file ini berjalan di server PythonAnywhere (punya folder 'blacksider')
-if 'blacksider' in str(BASE_DIR):
+
+# Kita cek apakah file ini berjalan di server Railway (Railway otomatis menyediakan variabel ini)
+IS_RAILWAY = 'RAILWAY_ENVIRONMENT' in os.environ
+
+if IS_RAILWAY:
+    # 🚀 SETTINGAN PRODUCTION (RAILWAY + SUPABASE)
     DEBUG = False
-    ALLOWED_HOSTS = ['blacksider.pythonanywhere.com']
+    ALLOWED_HOSTS = ['*']  # Railway akan mengatur domainnya secara dinamis
     
-    # Di server PythonAnywhere gratisan, kita pakai SQLite absolut yang kemarin sukses
+    # Ambil koneksi PostgreSQL langsung dari URL Supabase yang kita pasang di Railway
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': '/home/blacksider/dolphines/db.sqlite3',
-        }
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600
+        )
     }
 else:
-    # Ini settingan khusus saat kamu ngoding di VS Code LAPTOP kamu
+    # 💻 SETTINGAN LOKAL (NGODING DI VS CODE LAPTOP KAMU)
     DEBUG = True
     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
     
-    # Di laptop, Django kamu bebas pakai MySQL lokal kamu
+    # Di laptop, Django kamu tetap bebas pakai MySQL lokal yang kemarin sukses
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'db_dolphines',
-            'USER' : 'root',
-            'PASSWORD' : 'blacksider2026',
-            'HOST' : 'localhost',
-            'PORT' : '3306',
+            'USER': 'root',
+            'PASSWORD': 'blacksider2026',
+            'HOST': 'localhost',
+            'PORT': '3306',
         }
     }
 # ==========================================
@@ -71,6 +75,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -170,6 +175,14 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(settings.BASE_DIR, 'media')
