@@ -29,8 +29,13 @@ IS_RAILWAY = 'RAILWAY_ENVIRONMENT' in os.environ
 
 if IS_RAILWAY:
     # 🚀 SETTINGAN PRODUCTION (RAILWAY + SUPABASE)
-    DEBUG = True
+    DEBUG = False
     ALLOWED_HOSTS = ['*']  # Railway akan mengatur domainnya secara dinamis
+
+    CSRF_TRUSTED_ORIGINS = [
+        'https://pelatihlumba.up.railway.app',
+        'https://*.railway.app' # Ini untuk mengamankan jika domain subdomainnya berubah
+    ]
     
     # Ambil koneksi PostgreSQL langsung dari URL Supabase yang kita pasang di Railway
     DATABASES = {
