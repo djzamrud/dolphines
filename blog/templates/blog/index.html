@@ -49,7 +49,13 @@
                             </div>
                             <h3 class="h4 mb-3">{{pos.title}}</h3>
                             <div class="mb-4 rounded-3 overflow-hidden" style="height: 160px;">
-                                <img alt="{{pos.image}}" class="w-100 h-100 object-fit-cover" src="{{pos.image.url}}" />
+                                {% if pos.image and pos.image.name %}
+                                <img alt="{{pos.title}}" class="w-100 h-100 object-fit-cover"
+                                    src="{{ pos.image.url }}" />
+                                {% else %}
+                                <img alt="Default Image" class="w-100 h-100 object-fit-cover"
+                                    src="https://images.unsplash.com/photo-1551244072-5d12893278ab?q=80&w=600&auto=format&fit=crop" />
+                                {% endif %}
                             </div>
                             <p style="color: var(--on-primary-container); line-height: 1.6;">
                                 {{pos.body | truncatewords_html:20 | safe}}

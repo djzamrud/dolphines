@@ -24,41 +24,47 @@ SECRET_KEY = 'django-insecure-w4klo4p2tbuy_f@&q3569s8j(4xq6tivs(%6=zm&a&am7^23=t
 # 🧠 SELEKSI OTOMATIS MODERN: LAPTOP VS RAILWAY + SUPABASE
 # ==========================================
 
-# Kita cek apakah file ini berjalan di server Railway (Railway otomatis menyediakan variabel ini)
+# 1. Ini detektor apakah kode lagi berjalan di lokal atau di cloud Railway
 IS_RAILWAY = 'RAILWAY_ENVIRONMENT' in os.environ
 
 if IS_RAILWAY:
-    # 🚀 SETTINGAN PRODUCTION (RAILWAY + SUPABASE)
-    DEBUG = True
-    ALLOWED_HOSTS = ['*']  # Railway akan mengatur domainnya secara dinamis
-
-    CSRF_TRUSTED_ORIGINS = [
-        'https://pelatihlumba.up.railway.app',
-        'https://*.railway.app' # Ini untuk mengamankan jika domain subdomainnya berubah
-    ]
+    # -------------------------------------------------------------
+    # CONFIG PROD (Saat web lu berjalan live di internet / Railway)
+    # -------------------------------------------------------------
+    DEBUG = False
+    ALLOWED_HOSTS = ['*']
+    CSRF_TRUSTED_ORIGINS = ['https://pelatihlumba.up.railway.app', 'https://*.railway.app']
     
-    # Ambil koneksi PostgreSQL langsung dari URL Supabase yang kita pasang di Railway
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600
-        )
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+
+    # 🎯 Di Railway: Otomatis upload gambar dilempar ke Supabase Storage secara permanen
+    STORAGES = {
+        "default": {
+            "BACKEND": "django_storage_supabase.storage.SupabaseStorage",
+            "OPTIONS": {
+                "supabase_url": "https://optadautrggmdmqgwkfy.supabase.co",
+                "supabase_key": os.environ.get("sb_publishable_62nIA9I2r3_OH-D1UuV8bQ_kXbeGAGg"), 
+                "bucket_name": "blog-images",
+            },
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
     }
 else:
-    # 💻 SETTINGAN LOKAL (NGODING DI VS CODE LAPTOP KAMU)
+    # -------------------------------------------------------------
+    # CONFIG LOKAL (Saat lu ketik 'runserver' di localhost laptop)
+    # -------------------------------------------------------------
     DEBUG = True
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
     
-    # Di laptop, Django kamu tetap bebas pakai MySQL lokal yang kemarin sukses
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'db_dolphines',
-            'USER': 'root',
-            'PASSWORD': 'blacksider2026',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        }
+    # 🎯 Di Laptop: Tetap simpan di harddisk lokal (FileSystemStorage), anti-error dan aman!
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        },
     }
 # ==========================================
 
@@ -181,14 +187,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(settings.BASE_DIR, 'media')
