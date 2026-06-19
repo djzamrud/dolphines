@@ -29,7 +29,7 @@ IS_RAILWAY = 'RAILWAY_ENVIRONMENT' in os.environ
 
 if IS_RAILWAY:
     # 🚀 SETTINGAN PRODUCTION (RAILWAY + SUPABASE)
-    DEBUG = False
+    DEBUG = True
     ALLOWED_HOSTS = ['*']  # Railway akan mengatur domainnya secara dinamis
     
     # Ambil koneksi PostgreSQL langsung dari URL Supabase yang kita pasang di Railway
