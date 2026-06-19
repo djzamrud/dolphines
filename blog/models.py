@@ -22,6 +22,9 @@ class Post(models.Model):
     )
     post_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-post_at']
+
     
     def __str__(self):
         return "{}.{}.".format(self.title,self.penulis)

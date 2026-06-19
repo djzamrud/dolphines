@@ -17,7 +17,7 @@ def index(request):
 
 def detail_blog(request, id):
     artikel = get_object_or_404(models.Post, id=id)
-    artikel_lain = models.Post.objects.exclude(id=id)[:3]
+    artikel_lain = models.Post.objects.exclude(id=id).order_by('-post_at')[:5]
 
     context = {
         'blog' : artikel,
