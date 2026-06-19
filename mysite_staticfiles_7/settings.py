@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-w4klo4p2tbuy_f@&q3569s8j(4xq6tivs(%6=zm&a&am7^23=t
 IS_RAILWAY = 'RAILWAY_ENVIRONMENT' in os.environ
 
 if IS_RAILWAY:
-    DEBUG = False
+    DEBUG = True
     ALLOWED_HOSTS = ['*']
     CSRF_TRUSTED_ORIGINS = ['https://pelatihlumba.up.railway.app', 'https://*.railway.app']
 
@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_storage_supabase',
     'ckeditor',
     'blog',
     'about',
