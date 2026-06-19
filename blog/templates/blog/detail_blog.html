@@ -35,7 +35,8 @@
                         <div class="star-badge">
                             <span class="material-symbols-outlined text-tertiary fs-2 fill-1">star</span>
                         </div>
-                        <img alt="3D Learning Scene" class="img-fluid rounded-3xl" src="{{blog.image.url}}">
+                        <img alt="3D Learning Scene" class="img-fluid rounded-3xl"
+                            src="{% static 'blog/img/' %}{{ pos.image.name|cut:'blog/img/' }}">
                     </div>
                 </div>
             </div>
