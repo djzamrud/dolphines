@@ -39,7 +39,8 @@
             <div class="row g-4">
                 <!-- Note Card 1 -->
 
-                {% for pos in blog %} <div class="col-12 col-md-6 col-lg-4">
+                {% for pos in blog %}
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="bubbly-card bg-primary-bubble">
                         <div>
                             <div class="d-flex justify-content-between align-items-start mb-4">
@@ -48,15 +49,7 @@
                             </div>
                             <h3 class="h4 mb-3">{{pos.title}}</h3>
                             <div class="mb-4 rounded-3 overflow-hidden" style="height: 160px;">
-
-                                {% if pos.image.name %}
-                                <img alt="{{pos.title}}" class="w-100 h-100 object-fit-cover"
-                                    src="{% static 'blog/img/' %}{{ pos.image.name|cut:'blog/img/' }}" />
-                                {% else %}
-                                <img alt="Default Image" class="w-100 h-100 object-fit-cover"
-                                    src="{% static 'blog/img/default.jpg' %}" />
-                                {% endif %}
-
+                                <img alt="{{pos.image}}" class="w-100 h-100 object-fit-cover" src="{{pos.image.url}}" />
                             </div>
                             <p style="color: var(--on-primary-container); line-height: 1.6;">
                                 {{pos.body | truncatewords_html:20 | safe}}
