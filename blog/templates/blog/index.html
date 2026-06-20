@@ -26,11 +26,16 @@
             learning.🐬✨
         </p>
         <!-- Search Area -->
-        <div class="search-container">
+
+        <form action="" method="GET" class="search-container">
             <span class="material-symbols-outlined text-muted me-2">search</span>
-            <input class="search-input" placeholder="Search for a treasure..." type="text" />
-            <button class="search-btn">Find</button>
-        </div>
+            <input class="search-input" name="q" value="{{ request.GET.q }}" placeholder="Search for a treasure..."
+                type="text" />
+            <button type="submit" class="search-btn">Find</button>
+        </form>
+
+
+
     </header>
     <!-- Main Content: Notes Grid -->
     <main class="main-content">
@@ -39,17 +44,25 @@
             <div class="row g-4">
                 <!-- Note Card 1 -->
 
-                {% for pos in blog %}
+                {% for pos in posts %}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="bubbly-card bg-primary-bubble">
                         <div>
                             <div class="d-flex justify-content-between align-items-start mb-4">
-                                <span class="badge-custom text-primary-bubble">{{pos.category}}</span>
+                                <span class="badge-custom text-primary-bubble">{{pos.get_category_display}}</span>
                                 <span class="material-symbols-outlined opacity-50">auto_awesome</span>
                             </div>
                             <h3 class="h4 mb-3">{{pos.title}}</h3>
                             <div class="mb-4 rounded-3 overflow-hidden" style="height: 160px;">
-                                <img alt="{{pos.image}}" class="w-100 h-100 object-fit-cover" src="{{pos.image.url}}" />
+                                {% if pos.image %}
+                                <img alt="{{pos.title}}" class="w-100 h-100 object-fit-cover" src="{{pos.image.url}}" />
+                                {% else %}
+                                <div
+                                    class="w-100 h-100 d-flex align-items-center justify-content-center bg-secondary-light">
+                                    <span class="material-symbols-outlined opacity-25"
+                                        style="font-size: 48px;">image</span>
+                                </div>
+                                {% endif %}
                             </div>
                             <p style="color: var(--on-primary-container); line-height: 1.6;">
                                 {{pos.body | truncatewords_html:20 | safe}}
@@ -60,31 +73,12 @@
                         </a>
                     </div>
                 </div>
-                {% endfor %}
-
-                <!-- Note Card 3 -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="bubbly-card bg-tertiary-bubble">
-                        <div>
-                            <div class="d-flex justify-content-between align-items-start mb-4">
-                                <span class="badge-custom text-tertiary-bubble">Hardware 🛠️</span>
-                                <span class="material-symbols-outlined opacity-50">settings_input_component</span>
-                            </div>
-                            <h3 class="h4 mb-3">Arduino for Sea Explorers</h3>
-                            <div class="mb-4 rounded-3 overflow-hidden" style="height: 160px;">
-                                <img alt="Arduino board" class="w-100 h-100 object-fit-cover"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTjc-VGey5GB67AWFXwybejdYSUZhc8ANtk60dEjgi0xQJdlBWxmJBGNcdX_Fj3tIJntce51BJa1Mv8OKzhJeDeiA7iYNEhOQsRZG2u3vcR6s3hhdyeld0qF8ffQmUwwjkWx3DdIJ7u_FNNy6lROevmdoZV2nnWHEOndjZxVeVEoEYKd7rCGGXFq_g_7Hnc345Qyp2Zwt6XNL8OZbZ0ea3UeAKv3m_1chkE1jyRvlujAn3pz218ppqrJPKzpqwwDYbknOfg6DED-M" />
-                            </div>
-                            <p style="color: var(--on-tertiary-container); line-height: 1.6;">
-                                Wrangling wires and making LEDs blink like stars! My first steps into making things move
-                                in the physical world. It's truly electric! ⚡
-                            </p>
-                        </div>
-                        <a class="card-link text-tertiary-bubble" href="#">
-                            Read note <span class="material-symbols-outlined">arrow_forward</span>
-                        </a>
-                    </div>
+                {% empty %}
+                <div class="col-12 text-center py-5">
+                    <span class="material-symbols-outlined opacity-50" style="font-size: 48px;">search_off</span>
+                    <p class="mt-2 text-muted">Aduh..., "Treasure" yang dicari belum ada di database nih... 🐬</p>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </main>

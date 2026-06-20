@@ -1,4 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Post, Home
 
 # Create your views here.
 
@@ -8,8 +11,20 @@ from blog import models
 def index(request):
 
     blogs =  models.Post.objects.all()
+    query = request.GET.get('q', '')
+
+    results = Post.objects.all()
+    home_data = Home.objects.first()
+
+    if query:
+        results = results.filter(
+            Q(title__icontains=query) | Q(body__icontains=query)
+        )
 
     context = {
+        'home': home_data,
+        'posts': results, 
+        'query': query,
         'title' : 'Blog',
         'blog' : blogs
     }
@@ -25,3 +40,4 @@ def detail_blog(request, id):
     }
 
     return render (request, 'blog/detail_blog.html', context)
+

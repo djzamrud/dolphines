@@ -5,21 +5,17 @@ from blog import models as blogModel
 def index(request):
 
     blog = blogModel.Home.objects.all()
+    tigablog = blogModel.Post.objects.all()[:3]
 
     context = {
-
-        
-
-
         'title' : 'DJZA | Dolphines 🐬',
         'header' : 'Welcome to Mywebsite',
         'content' : blog,
+        'terbaru' : tigablog,
         'img_logo' : [
              ['img/dolp2.jpg' , 'dolp2'], 
         ],
-        
 
-        
     }
 
     if request.method == 'POST':

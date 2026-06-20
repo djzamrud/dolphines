@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 
 
 from .import views
+from blog.views import detail_blog
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,6 +16,8 @@ urlpatterns = [
     path('about/', include('about.urls', namespace='about')),
     path('contact/', include('contact.urls', namespace='contact')),
     path('project/', include('project.urls', namespace='project')),
+
+    path('<int:blog_id>/', detail_blog, name='root_detail_blog'),
 
 
 
